@@ -1,0 +1,38 @@
+{
+  "name": "be-2-bandung-6",
+  "version": "1.0.0",
+  "description": "BE Capstone Project",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Bandung-6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Bandung-6/issues"
+  },
+  "homepage": "https://github.com/Kampus-Merdeka-Software-Engineering/BE-2-Bandung-6#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "env2": "^2.2.2",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "json": "^11.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.35.1"
+  }
+}
