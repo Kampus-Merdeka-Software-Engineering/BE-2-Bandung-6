@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const path = require("path");
 const cors = require("cors")
 const bodyParser = require('body-parser');
-const customers = require('../router/customer');
+const customers = require('./router/customer');
 const server = express();
 
 //server
