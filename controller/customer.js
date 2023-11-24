@@ -22,3 +22,5 @@ controller.getAll = async function (req, res) {
         });
     }
 };
+
+module.exports = controller;
