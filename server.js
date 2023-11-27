@@ -38,5 +38,5 @@ server.use((error, req, res, next) => {
 
 // Server berjalan
 server.listen(port, () => {
-  console.log(`server is running on port ${port}`);
+  console.log(`Server berjalan pada port ${port}`);
 });
