@@ -5,11 +5,13 @@ const sequelize = require('../config/sequelize');
 const Customer = sequelize.define(
   'customers',
   {
-    nama_depan: {
-      type: DataTypes.STRING,
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
+      primaryKey: true,
     },
-    nama_belakang: {
+    nama_lengkap: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -25,6 +27,14 @@ const Customer = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    total_tiket: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    tanggal_pemesanan: { 
+      type: DataTypes.DATE,
+      allowNull: false,
+    }
   },
   {
     freezeTableName: true,
