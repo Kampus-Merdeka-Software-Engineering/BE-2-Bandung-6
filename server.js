@@ -3,7 +3,9 @@ const morgan = require('morgan');
 const path = require("path");
 const cors = require("cors")
 const bodyParser = require('body-parser');
-const customers = require('./router/customer');
+// const customers = require('./router/customer');
+// const sequelize = require('./config/sequelize');
+const layanan = require('./model/layanan')
 const server = express();
 
 //server
@@ -16,7 +18,7 @@ server.use(morgan('dev'));
 // body parser
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
-server.use('/customer', customers);
+// server.use('/customer', customers);
 
 // error
 server.use((req, res, next) => {
