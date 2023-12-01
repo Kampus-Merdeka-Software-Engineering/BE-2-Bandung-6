@@ -1,17 +1,19 @@
 const express = require('express');
 const morgan = require('morgan');
-const path = require("path");
 const cors = require("cors")
 const bodyParser = require('body-parser');
-// const customers = require('./router/customer');
-// const sequelize = require('./config/sequelize');
-const layanan = require('./model/layanan')
 const server = express();
+const layananRouter = require('./router/layanan')
+
 
 //server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
+server.use(cors())
+server.use(express.json())
 
+//Router
+server.use("/layanan", layananRouter);
 // morgan
 server.use(morgan('dev'));
 
