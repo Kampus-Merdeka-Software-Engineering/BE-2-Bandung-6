@@ -5,7 +5,7 @@ const sequelize = require('../config/sequelize');
 const Layanan = sequelize.define(
   'tbl_layanan',
   {
-    id: {
+    id_layanan: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
@@ -44,7 +44,7 @@ const Layanan = sequelize.define(
 sequelize
   .sync()
   .then(() => {
-    console.log('Tabel telah berhasil dibuat.');
+    console.log('Tabel layanan telah berhasil dibuat atau sudah ada.');
   })
   .catch((error) => {
     console.error('Terjadi kesalahan saat mencoba membuat tabel:', error);
