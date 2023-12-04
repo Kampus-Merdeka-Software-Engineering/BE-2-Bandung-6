@@ -1,12 +1,18 @@
-const customer = require('./customer');
+const data_penumpang = require('./data_penumpang');
 const layanan = require('./layanan');
-const city = require('./city');
+const kota = require('./kota');
+const detail_pemesanan = require('./detail_pemesanan')
+const pembayaran = require('./pembayaran')
+
 const model = {};
 
 // Model
-model.customer = customer;
+model.data_penumpang = data_penumpang;
 model.layanan = layanan;
-model.city = city;
+model.kota = kota;
+model.detail_pemesanan = detail_pemesanan;
+model.pembayaran = pembayaran;
+
 
 
 module.exports = model;
