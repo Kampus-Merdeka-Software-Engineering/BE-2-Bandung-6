@@ -4,6 +4,8 @@ const cors = require("cors")
 const bodyParser = require('body-parser');
 const server = express();
 const layananRouter = require('./router/layanan')
+const kotaRouter = require('./router/kota')
+const datapenumpangRouter= require('./router/data_penumpang')
 
 
 
@@ -15,6 +17,8 @@ server.use(express.json())
 
 //Router
 server.use("/layanan", layananRouter);
+server.use("/kota", kotaRouter)
+server.use("/datapenumpang", datapenumpangRouter)
 // morgan
 server.use(morgan('dev'));
 
