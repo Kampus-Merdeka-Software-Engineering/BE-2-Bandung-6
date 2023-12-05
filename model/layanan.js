@@ -5,12 +5,6 @@ const sequelize = require('../config/sequelize');
 const Layanan = sequelize.define(
   'tbl_layanan',
   {
-    id_layanan: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
-    },
     kota_asal: {
       type: DataTypes.STRING,
       allowNull: false,
