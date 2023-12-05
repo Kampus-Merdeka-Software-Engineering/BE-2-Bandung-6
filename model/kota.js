@@ -5,12 +5,6 @@ const sequelize = require('../config/sequelize');
 const Kota_travel = sequelize.define(
   'tbl_kota',
   {
-    id_kota: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
-    },
     alamat_travel: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,7 +17,7 @@ const Kota_travel = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    gambar: {
+    gambar_travel: {
       type: DataTypes.DATE,
       allowNull: false,
     },
