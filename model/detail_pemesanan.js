@@ -14,10 +14,6 @@ const Detail_pemesanan = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    deskripsi: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
     kota_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
