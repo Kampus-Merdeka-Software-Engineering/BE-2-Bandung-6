@@ -5,12 +5,6 @@ const sequelize = require('../config/sequelize');
 const Data_penumpang = sequelize.define(
   'tbl_data_penumpang',
   {
-    id_penumpang: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
-    },
     nama_lengkap: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,6 +29,10 @@ const Data_penumpang = sequelize.define(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    keterangan:{
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   },
   {
     freezeTableName: true,
