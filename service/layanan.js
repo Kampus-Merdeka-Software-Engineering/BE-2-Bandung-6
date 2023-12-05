@@ -13,10 +13,10 @@ async function getAllLayanan() {
   }
 }
 
-async function getLayananById(id) {
+async function findByIdLayanan(id) {
   try {
     const result = await Layanan.findByPk(id);
-    if (result.length === 0) {
+    if (!result) {
       throw new Error('Data tidak ditemukan.');
     }
     return result;
@@ -34,4 +34,4 @@ async function createLayanan(kota_asal, kota_tujuan, tanggal_keberangkatan, jam_
   }
 }
 
-module.exports = {getAllLayanan, getLayananById, createLayanan};
+module.exports = { getAllLayanan, findByIdLayanan, createLayanan };
