@@ -14,7 +14,7 @@ const Layanan = sequelize.define(
       allowNull: false,
     },
     tanggal_keberangkatan: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     jam_keberangkatan: {
