@@ -14,7 +14,7 @@ const getDataPenumpang = async (req, res) => {
 const createDataPenumpang = async (req, res) => {
   try {
     const { nama_lengkap, alamat_email, no_telepon, alamat, jumlah_tiket, tanggal_pemesanan, keterangan } = req.body;
-    const newDataPenumpang = await datapenumpangServiceService.createKota({ nama_lengkap, alamat_email, no_telepon, alamat, jumlah_tiket, tanggal_pemesanan, keterangan });
+    const newDataPenumpang = await datapenumpangService.createDataPenumpang({ nama_lengkap, alamat_email, no_telepon, alamat, jumlah_tiket, tanggal_pemesanan, keterangan });
 
     res.status(201).json({
       message: 'Data penumpang berhasil dibuat',
