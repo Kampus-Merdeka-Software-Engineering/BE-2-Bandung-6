@@ -1,5 +1,7 @@
 const layananService = require('../service/layanan');
 
+
+
 // controler getall
 const getLayanan = async (req, res) => {
   try {
@@ -8,6 +10,26 @@ const getLayanan = async (req, res) => {
   } catch (error) {
     console.error('Gagal mendapatkan daftar layanan:', error);
     res.status(500).json({ error: 'Gagal mendapatkan daftar layanan' });
+  }
+};
+const getByFilter = async (req, res) => {
+  try {
+    const { kota_asal, kota_tujuan, tanggal_keberangkatan, batas_tiket } = req.query;
+
+    // Buat objek filter berdasarkan parameter yang diterima
+    const filter = {};
+    if (kota_asal) filter.kota_asal = kota_asal;
+    if (kota_tujuan) filter.kota_tujuan = kota_tujuan;
+    if (tanggal_keberangkatan) filter.tanggal_keberangkatan = tanggal_keberangkatan;
+    if (batas_tiket) filter.batas_tiket = batas_tiket;
+
+    // Gunakan LayananService untuk melakukan pencarian
+    const hasilPencarian = await layananService.findByFilter(filter);
+
+    res.status(200).json(hasilPencarian);
+  } catch (error) {
+    console.error('Terjadi kesalahan saat mencari layanan:', error);
+    res.status(500).json({ error: 'Terjadi kesalahan dalam mencari layanan' });
   }
 };
 const createLayanan = async (req, res) => {
@@ -42,7 +64,4 @@ const getLayananWithId = async (req, res) => {
   }
 };
 
-
-
-
-module.exports = { getLayanan, createLayanan, getLayananWithId };
+module.exports = { getLayanan, createLayanan, getLayananWithId, getByFilter };
