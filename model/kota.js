@@ -5,20 +5,20 @@ const sequelize = require('../config/sequelize');
 const Kota_travel = sequelize.define(
   'tbl_kota',
   {
-    alamat_travel: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     kota_asal_travel: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    alamat_travel: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     no_telepon_travel: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     gambar_travel: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
