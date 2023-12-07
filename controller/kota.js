@@ -3,7 +3,7 @@ const kotaService = require('../service/kota');
 // controler getall
 const getKotaTravel = async (req, res) => {
   try {
-    const result = await kotaService.getAllKota();
+    const result = await kotaService.getAllKotaTravel();
     res.json(result);
   } catch (error) {
     console.error('Gagal mendapatkan daftar kota travel:', error);
@@ -14,7 +14,7 @@ const getKotaTravel = async (req, res) => {
 const createKotaTravel = async (req, res) => {
   try {
     const { alamat_travel, kota_asal_travel, no_telepon_travel, gambar_travel } = req.body;
-    const newKotaTravel = await kotaService.createKota({ alamat_travel, kota_asal_travel, no_telepon_travel, gambar_travel });
+    const newKotaTravel = await kotaService.createKotaTravel({ alamat_travel, kota_asal_travel, no_telepon_travel, gambar_travel });
 
     res.status(201).json({
       message: 'Kota travel berhasil dibuat',
