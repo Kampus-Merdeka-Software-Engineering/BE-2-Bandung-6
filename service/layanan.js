@@ -24,6 +24,20 @@ async function findByIdLayanan(id) {
     throw error;
   }
 }
+async function findByFilter(filter) {
+  try {
+    const layanan = await Layanan.findAll({
+      where: filter,
+    });
+    if (layanan.length > 0) {
+      return layanan;
+    } else {
+      throw new Error('Data tidak ditemukan.');
+    }
+  } catch (error) {
+    throw error;
+  }
+}
 
 async function createLayanan(kota_asal, kota_tujuan, tanggal_keberangkatan, jam_keberangkatan, batas_tiket, harga_tiket) {
   try {
@@ -34,4 +48,4 @@ async function createLayanan(kota_asal, kota_tujuan, tanggal_keberangkatan, jam_
   }
 }
 
-module.exports = { getAllLayanan, findByIdLayanan, createLayanan };
+module.exports = { getAllLayanan, findByIdLayanan, createLayanan, findByFilter };
