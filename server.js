@@ -14,12 +14,12 @@ server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'https://kampus-merdeka-software-engineering.github.io');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   next();
-// });
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://kampus-merdeka-software-engineering.github.io');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 // morgan
 server.use(morgan('dev'));
