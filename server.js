@@ -8,18 +8,18 @@ const kotaRouter = require('./router/kota');
 const datapenumpangRouter = require('./router/data_penumpang');
 
 //server
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://kampus-merdeka-software-engineering.github.io');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://kampus-merdeka-software-engineering.github.io');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 // morgan
 server.use(morgan('dev'));
@@ -48,6 +48,6 @@ server.use((error, req, res, next) => {
 });
 
 // Server berjalan
-server.listen(port, () => {
-  console.log(`Server berjalan pada port ${port}`);
+server.listen(PORT, () => {
+  console.log(`Server berjalan pada port ${PORT}`);
 });
