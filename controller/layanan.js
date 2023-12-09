@@ -14,14 +14,13 @@ const getLayanan = async (req, res) => {
 };
 const getByFilter = async (req, res) => {
   try {
-    const { kota_asal, kota_tujuan, tanggal_keberangkatan, batas_tiket } = req.query;
+    const { kota_asal, kota_tujuan, tanggal_keberangkatan } = req.query;
 
     // Buat objek filter berdasarkan parameter yang diterima
     const filter = {};
     if (kota_asal) filter.kota_asal = kota_asal;
     if (kota_tujuan) filter.kota_tujuan = kota_tujuan;
     if (tanggal_keberangkatan) filter.tanggal_keberangkatan = tanggal_keberangkatan;
-    if (batas_tiket) filter.batas_tiket = batas_tiket;
 
     // Gunakan LayananService untuk melakukan pencarian
     const hasilPencarian = await layananService.findByFilter(filter);
