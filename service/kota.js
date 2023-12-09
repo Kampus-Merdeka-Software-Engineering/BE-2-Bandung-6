@@ -1,6 +1,5 @@
 const Kota = require('../model/kota');
 
-
 async function getAllKotaTravel() {
   try {
     const result = await Kota.findAll();
@@ -12,18 +11,29 @@ async function getAllKotaTravel() {
     throw error;
   }
 }
+async function getKotaByAsal(kotaAsal) {
+  try {
+    const result = await Kota.findAll({ where: { kota_asal_travel: kotaAsal } });
+    if (!result) {
+      throw new Error('Data tidak ditemukan.');
+    }
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
 
 async function findByIdKotaTravel(id) {
-    try {
-      const result = await Kota.findByPk(id);
-      if (!result) {
-        throw new Error('Data tidak ditemukan.');
-      }
-      return result;
-    } catch (error) {
-      throw error;
+  try {
+    const result = await Kota.findByPk(id);
+    if (!result) {
+      throw new Error('Data tidak ditemukan.');
     }
+    return result;
+  } catch (error) {
+    throw error;
   }
+}
 
 async function createKotaTravel(alamat_travel, kota_asal_travel, no_telepon_travel, gambar_travel) {
   try {
@@ -34,4 +44,4 @@ async function createKotaTravel(alamat_travel, kota_asal_travel, no_telepon_trav
   }
 }
 
-module.exports = { getAllKotaTravel, findByIdKotaTravel, createKotaTravel };
+module.exports = { getAllKotaTravel, findByIdKotaTravel, createKotaTravel, getKotaByAsal };
