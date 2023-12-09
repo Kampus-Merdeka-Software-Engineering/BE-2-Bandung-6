@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const cors = require("cors")
 const bodyParser = require('body-parser');
 const server = express();
-// const layananRouter = require('./router/layanan')
+const layananRouter = require('./router/layanan')
 const kotaRouter = require('./router/kota')
 const datapenumpangRouter= require('./router/data_penumpang')
 
@@ -14,17 +14,16 @@ const port = process.env.PORT || 3001;
 
 server.use(cors())
 server.use(express.json())
+server.use(express.urlencoded({extended: true}))
 
-//Router
-// server.use("/layanan", layananRouter);
-server.use("/kota", kotaRouter)
-server.use("/datapenumpang", datapenumpangRouter)
 // morgan
 server.use(morgan('dev'));
+//Router
+server.use("/layanan", layananRouter);
+server.use("/kota", kotaRouter)
+server.use("/datapenumpang", datapenumpangRouter)
 
-// body parser
-server.use(bodyParser.urlencoded({ extended: false }));
-server.use(bodyParser.json());
+
 // server.use('/customer', customers);
 
 // error
