@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const server = express();
 const layananRouter = require('./router/layanan');
 const kotaRouter = require('./router/kota');
