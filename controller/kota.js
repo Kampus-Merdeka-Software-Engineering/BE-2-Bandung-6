@@ -27,10 +27,25 @@ const createKotaTravel = async (req, res) => {
     });
   }
 };
+async function getKotaByAsal(req, res) {
+  const kotaAsal = req.params.kotaAsal;
+
+  try {
+    const kota = await kotaService.getKotaByAsal(kotaAsal);
+    if (kota) {
+      res.json(kota);
+    } else {
+      res.status(404).json({ error: 'Kota tidak ditemukan.' });
+    }
+  } catch (error) {
+    console.error('Terjadi kesalahan:', error);
+    res.status(500).json({ error: 'Terjadi kesalahan saat mengambil data kota.' });
+  }
+}
 const getKotaTravelWithId = async (req, res) => {
     const kotaId = req.params.id;
     try {
-      const kota = await kotaService.findByIdKota(kotaId);
+      const kota = await kotaService.findByIdKotaTravel(kotaId);
   
       if (!kota) {
         return res.status(404).json({ message: 'kota tidak ditemukan.' });
@@ -43,4 +58,4 @@ const getKotaTravelWithId = async (req, res) => {
     }
   };
 
-module.exports = { getKotaTravel, createKotaTravel, getKotaTravelWithId };
+module.exports = { getKotaTravel, createKotaTravel, getKotaTravelWithId, getKotaByAsal };
