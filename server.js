@@ -1,28 +1,32 @@
 const express = require('express');
 const morgan = require('morgan');
-const cors = require("cors")
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const server = express();
-const layananRouter = require('./router/layanan')
-const kotaRouter = require('./router/kota')
-const datapenumpangRouter= require('./router/data_penumpang')
-
-
+const layananRouter = require('./router/layanan');
+const kotaRouter = require('./router/kota');
+const datapenumpangRouter = require('./router/data_penumpang');
 
 //server
 const port = process.env.PORT || 3001;
 
-server.use(cors())
-server.use(express.json())
-server.use(express.urlencoded({extended: true}))
+server.use(cors());
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://kampus-merdeka-software-engineering.github.io');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 // morgan
 server.use(morgan('dev'));
 //Router
-server.use("/layanan", layananRouter);
-server.use("/kota", kotaRouter)
-server.use("/datapenumpang", datapenumpangRouter)
-
+server.use('/layanan', layananRouter);
+server.use('/kota', kotaRouter);
+server.use('/datapenumpang', datapenumpangRouter);
 
 // server.use('/customer', customers);
 
@@ -42,7 +46,6 @@ server.use((error, req, res, next) => {
     },
   });
 });
-
 
 // Server berjalan
 server.listen(port, () => {
