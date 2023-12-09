@@ -21,7 +21,7 @@ const Pembayaran = sequelize.define(
       allowNull: false,
       references: {
         model: Detail_pemesanan,
-        key: 'id_detail',
+        key: 'id_deta',
       },
     },
   },
