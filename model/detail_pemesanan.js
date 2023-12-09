@@ -8,12 +8,6 @@ const Data_penumpang = require('./data_penumpang')
 const Detail_pemesanan = sequelize.define(
   'tbl_detail',
   {
-    id_detail: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
-    },
     kota_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,20 +16,12 @@ const Detail_pemesanan = sequelize.define(
         key: 'id_kota',
       },
     },
-    penumpang_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: Data_penumpang,
-          key: 'id_penumpang',
-        },
-      },
     layanan_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: Layanan,
-        key: 'id_layanan',
+        key: 'id',
       },
     },
   },
@@ -45,16 +31,13 @@ const Detail_pemesanan = sequelize.define(
   }
 );
 // FK kota
-Kota_travel.hasMany(Detail_pemesanan, { foreignKey: 'id_kota' });
-Detail_pemesanan.belongsTo(Kota_travel, { foreignKey: 'id_kota' });
+Kota_travel.hasMany(Detail_pemesanan, { foreignKey: 'kota_id' });
+Detail_pemesanan.belongsTo(Kota_travel, { foreignKey: 'kota_id' });
 
 //Fk Layanan
-Layanan.hasMany(Detail_pemesanan, { foreignKey: 'id_layanan' });
-Detail_pemesanan.belongsTo(Layanan, { foreignKey: 'id_layanan' });
+Layanan.hasMany(Detail_pemesanan, { foreignKey: 'layanan_id' });
+Detail_pemesanan.belongsTo(Layanan, { foreignKey: 'layanan_id' });
 
-//fk Data Penumpang
-Data_penumpang.hasMany(Detail_pemesanan, { foreignKey: 'id_penumpang' });
-Detail_pemesanan.belongsTo(Data_penumpang, { foreignKey: 'id_penumpang' });
 
 
 
