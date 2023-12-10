@@ -27,7 +27,7 @@ const createKotaTravel = async (req, res) => {
     });
   }
 };
-async function getKotaByAsal(req, res) {
+const getKotaByAsal = async (req, res) => {
   const kotaAsal = req.params.kotaAsal;
 
   try {
