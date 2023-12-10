@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/sequelize');
 
+
 // Buat database customer
 const Data_penumpang = sequelize.define(
   'tbl_data_penumpang',
@@ -39,6 +40,7 @@ const Data_penumpang = sequelize.define(
     timestamps: false,
   }
 );
+
 sequelize
   .sync()
   .then(() => {
