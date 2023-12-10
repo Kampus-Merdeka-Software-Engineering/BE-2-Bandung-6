@@ -31,6 +31,21 @@ const getByFilter = async (req, res) => {
     res.status(500).json({ error: 'Terjadi kesalahan dalam mencari layanan' });
   }
 };
+const getLayananByAsal = async (req, res) => {
+  const kotaAsal = req.params.kotaAsal;
+
+  try {
+    const layanan = await layananService.getLayananByAsal(kotaAsal);
+    if (layanan) {
+      res.json(layanan);
+    } else {
+      res.status(404).json({ error: 'Kota tidak ditemukan.' });
+    }
+  } catch (error) {
+    console.error('Terjadi kesalahan:', error);
+    res.status(500).json({ error: 'Terjadi kesalahan saat mengambil data layanan.' });
+  }
+}
 const createLayanan = async (req, res) => {
   try {
     const { kota_asal, kota_tujuan, tanggal_keberangkatan, jam_keberangkatan, batas_tiket, harga_tiket } = req.body;
@@ -63,4 +78,4 @@ const getLayananWithId = async (req, res) => {
   }
 };
 
-module.exports = { getLayanan, createLayanan, getLayananWithId, getByFilter };
+module.exports = { getLayanan, createLayanan, getLayananWithId, getByFilter, getLayananByAsal };
