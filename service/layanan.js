@@ -12,6 +12,18 @@ async function getAllLayanan() {
     throw error;
   }
 }
+async function getLayananByAsal(kotaAsal) {
+  try {
+    const result = await Layanan.findAll({ where: { kota_asal: kotaAsal } });
+    if (!result) {
+      throw new Error('Data tidak ditemukan.');
+    }
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
 
 async function findByIdLayanan(id) {
   try {
@@ -39,6 +51,7 @@ async function findByFilter(filter) {
   }
 }
 
+
 async function createLayanan(kota_asal, kota_tujuan, tanggal_keberangkatan, jam_keberangkatan, batas_tiket, harga_tiket) {
   try {
     const newLayanan = await Layanan.create(kota_asal, kota_tujuan, tanggal_keberangkatan, jam_keberangkatan, batas_tiket, harga_tiket);
@@ -48,4 +61,4 @@ async function createLayanan(kota_asal, kota_tujuan, tanggal_keberangkatan, jam_
   }
 }
 
-module.exports = { getAllLayanan, findByIdLayanan, createLayanan, findByFilter };
+module.exports = { getAllLayanan, findByIdLayanan, createLayanan, findByFilter, getLayananByAsal};
