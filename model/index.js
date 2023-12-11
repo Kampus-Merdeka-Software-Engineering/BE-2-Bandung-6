@@ -1,7 +1,6 @@
 const data_penumpang = require('./data_penumpang');
 const layanan = require('./layanan');
 const kota = require('./kota');
-const detail_pemesanan = require('./detail_pemesanan')
 const pembayaran = require('./pembayaran')
 
 const model = {};
