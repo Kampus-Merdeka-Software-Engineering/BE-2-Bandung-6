@@ -33,5 +33,17 @@ async function createDataPenumpang(nama_lengkap, alamat_email, no_telepon, alama
     throw error;
   }
 }
+async function getDataByEmail(alamatEmail) {
+  try {
+    const data = await DataPenumpang.findAll({
+      where: {
+        alamat_email: alamatEmail,
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = {getAllDataPenumpang, createDataPenumpang, findByIdDataPenumpang };
+module.exports = {getAllDataPenumpang, createDataPenumpang, findByIdDataPenumpang, getDataByEmail };
