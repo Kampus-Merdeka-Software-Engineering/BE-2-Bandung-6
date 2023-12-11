@@ -6,6 +6,7 @@ const layananRouter = require('./router/layanan');
 const kotaRouter = require('./router/kota');
 const datapenumpangRouter = require('./router/data_penumpang');
 
+
 //server
 const PORT = process.env.PORT || 3001;
 
@@ -20,6 +21,7 @@ server.use(morgan('dev'));
 server.use('/layanan', layananRouter);
 server.use('/kota', kotaRouter);
 server.use('/datapenumpang', datapenumpangRouter);
+
 
 // server.use('/customer', customers);
 
