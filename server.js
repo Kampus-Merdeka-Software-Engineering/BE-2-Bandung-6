@@ -6,14 +6,12 @@ const layananRouter = require('./router/layanan');
 const kotaRouter = require('./router/kota');
 const datapenumpangRouter = require('./router/data_penumpang');
 
-
 //server
 const PORT = process.env.PORT || 3001;
 
 server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-
 
 // morgan
 server.use(morgan('dev'));
@@ -23,7 +21,6 @@ server.use('/kota', kotaRouter);
 server.use('/datapenumpang', datapenumpangRouter);
 
 
-// server.use('/customer', customers);
 
 // error
 server.use((req, res, next) => {
