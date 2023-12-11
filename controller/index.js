@@ -1,6 +1,5 @@
 const data_penumpang = require('./data_penumpang');
 const layanan = require('./layanan');
-const detail_pemesanan = require('./detail_pemesanan');
 const kota = require('./kota');
 const pembayaran = require('./pembayaran');
 const controller = {};
