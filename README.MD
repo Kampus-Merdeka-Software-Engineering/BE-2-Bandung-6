@@ -6,5 +6,5 @@ Project JEJATIM GROUP 6 TEAM C
 PORT = 3001
 DB_URL = Mengambil dari mysql root di database railway
 4. Ketik npm start
-5. Buat data dummy yang dikirimkan di gup wa di postman
+5. Buat data dummy yang dikirimkan di grup wa di postman
 6. Website bisa jalan
